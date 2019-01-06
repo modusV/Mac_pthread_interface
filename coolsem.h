@@ -18,8 +18,8 @@ struct cool_sem {
 };
 
 
-void rk_sem_init(struct cool_sem *s, uint32_t value);
-void rk_sem_wait(struct cool_sem *s);
-void rk_sem_post(struct cool_sem *s);
+void cool_sem_init(struct cool_sem *s, uint32_t value);
+void cool_sem_wait(struct cool_sem *s);
+void cool_sem_post(struct cool_sem *s);
 
 #endif //MYSOLUTION_COOLSEM_H
