@@ -11,7 +11,7 @@
 #include <semaphore.h>
 #endif
 
-void cool_sem_init(struct rk_sem *s, uint32_t value) {
+void cool_sem_init(struct cool_sem *s, uint32_t value) {
 #ifdef __APPLE__
     dispatch_semaphore_t *sem = &s->sem;
     *sem = dispatch_semaphore_create(value);
@@ -20,7 +20,7 @@ void cool_sem_init(struct rk_sem *s, uint32_t value) {
 #endif
 }
 
-void cool_sem_wait(struct rk_sem *s) {
+void cool_sem_wait(struct cool_sem *s) {
 #ifdef __APPLE__
     dispatch_semaphore_wait(s->sem, DISPATCH_TIME_FOREVER);
 #else
@@ -32,7 +32,7 @@ void cool_sem_wait(struct rk_sem *s) {
 #endif
 }
 
-void cool_sem_post(struct rk_sem *s)
+void cool_sem_post(struct cool_sem *s)
 {
 
 #ifdef __APPLE__
